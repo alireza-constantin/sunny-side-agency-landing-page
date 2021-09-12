@@ -2,4 +2,124 @@
 	/* fonts */
 	--barlow: 'Barlow', sans-serif;
 	--fraunces: 'Fraunces', serif;
+
+	/* Colors: Primary */
+	--Soft-red: hsl(7, 99%, 70%);
+	--Yellow: hsl(51, 100%, 49%);
+	--Dark-desaturated-cyan: hsl(167, 40%, 24%);
+	--Dark-blue: hsl(198, 62%, 26%);
+	--Dark-moderate-cyan: hsl(168, 34%, 41%);
+
+	/* Colors: Primary */
+	--Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+	--Very-dark-grayish-blue: hsl(213, 9%, 39%);
+	--Dark-grayish-blue: hsl(232, 10%, 55%);
+	--Grayish-blue: hsl(210, 4%, 67%);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+}
+
+/* Header */
+#header {
+	background: url('/images/desktop/image-header.jpg') no-repeat center
+		center/cover;
+	height: 100vh;
+}
+
+#header .container {
+	padding: 2rem;
+}
+
+#header .nav {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3rem;
+}
+
+#header .nav .logo {
+	cursor: pointer;
+}
+
+#header .nav ul {
+	list-style: none;
+}
+
+#header .nav ul li {
+	display: inline-block;
+	margin-left: 1rem;
+}
+
+#header .nav a {
+	color: #fff;
+	text-decoration: none;
+	font-family: var(--barlow);
+	font-size: 0.8rem;
+	font-weight: 600;
+	padding: 0.9rem 1.3rem;
+	cursor: pointer;
+	transition: all 0.4s ease-in;
+}
+
+#header .nav a:hover {
+	opacity: 0.8;
+}
+
+#header .nav li:last-child a {
+	color: var(--Very-dark-desaturated-blue);
+	font-family: var(--fraunces);
+	font-weight: 900;
+	background-color: #fff;
+	border-radius: 25px;
+}
+
+#header .nav li:last-child a:hover {
+	/* background-color: transparent; */
+	background-color: hsla(198, 74%, 71%, 1);
+	color: #fff;
+	opacity: 1;
+}
+
+#header .hero {
+	width: 100%;
+	color: #fff;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.hero h1 {
+	margin: auto;
+	font-family: var(--fraunces);
+	font-size: 3.2rem;
+	letter-spacing: 7px;
+	font-weight: 900;
+	margin-top: 5rem;
+}
+
+.hero .arrow {
+	margin-top: 4.5rem;
+	animation: arrow 1.2s alternate infinite ease-in-out;
+}
+
+.hero .arrow img {
+	height: 20vh;
+}
+
+@keyframes arrow {
+	0% {
+		transform: translateY(-20px);
+	}
+
+	100% {
+		transform: translateY(20px);
+	}
 }
