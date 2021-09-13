@@ -22,11 +22,23 @@
 	margin: 0;
 	box-sizing: border-box;
 	user-select: none;
+	scroll-behavior: smooth;
 }
 
 body {
 	width: 100%;
 	min-height: 100vh;
+	overflow: auto;
+}
+
+h1 {
+	font-family: var(--fraunces);
+	font-weight: 900;
+	margin-bottom: 2rem;
+}
+
+p {
+	font-family: var(--barlow);
 }
 
 /* Header */
@@ -98,7 +110,6 @@ body {
 
 .hero h1 {
 	margin: auto;
-	font-family: var(--fraunces);
 	font-size: 3.2rem;
 	letter-spacing: 7px;
 	font-weight: 900;
@@ -121,5 +132,136 @@ body {
 
 	100% {
 		transform: translateY(20px);
+	}
+}
+
+/* Main */
+#main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#main div {
+	width: 50%;
+}
+
+#main .text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.text .text-container {
+	max-width: 500px;
+	min-width: 65%;
+	animation: show 2s forwards 0.3s ease-in-out;
+	opacity: 0;
+}
+
+.text-container h1 {
+	font-size: calc(1.3rem + 1.4vw);
+	color: var(--Very-dark-desaturated-blue);
+}
+
+.text-container p {
+	font-size: 1.1rem;
+	line-height: 1.7;
+	color: var(--Dark-grayish-blue);
+	margin-bottom: 2rem;
+}
+
+.text-container a {
+	font-family: var(--fraunces);
+	font-weight: 900;
+	position: relative;
+	padding: 8px;
+	font-size: 1.1rem;
+	cursor: pointer;
+}
+
+.text-container a:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	border-radius: 10px;
+	left: 0;
+	bottom: 5px;
+	background-color: #fed201;
+	opacity: 0.3;
+	z-index: -1;
+	transition: opacity 0.4s ease-in;
+}
+
+.text-container a.pink:after {
+	background-color: #ff7364;
+}
+
+.text-container a:hover::after {
+	opacity: 1;
+}
+
+#main .img picture img {
+	width: 100%;
+	height: 100%;
+}
+
+.background-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 556px;
+	text-align: center;
+}
+
+.background-text.graphic {
+	background: url('/images/desktop/image-graphic-design.jpg') no-repeat center
+		center/cover;
+}
+
+.background-text.photo {
+	background: url('/images/desktop/image-photography.jpg') no-repeat center
+		center/cover;
+}
+
+.background-text .txt-ctr {
+	margin-bottom: 8%;
+	opacity: 0.6;
+}
+
+.txt-ctr h1 {
+	font-size: 1.8rem;
+}
+
+.txt-ctr p {
+	line-height: 1.6;
+	font-size: 1rem;
+}
+
+@keyframes show {
+	0% {
+		transform: translateX(-400px);
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1000px) {
+	.text .text-container {
+		min-width: 85%;
+	}
+
+	.txt-ctr h1 {
+		font-size: 1.6rem;
+	}
+
+	.txt-ctr p {
+		font-size: 0.9rem;
 	}
 }
