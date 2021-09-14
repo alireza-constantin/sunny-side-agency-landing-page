@@ -71,6 +71,10 @@ p {
 	margin-left: 1rem;
 }
 
+#header .nav .hamburger {
+	display: none;
+}
+
 #header .nav a {
 	color: #fff;
 	text-decoration: none;
@@ -110,7 +114,7 @@ p {
 
 .hero h1 {
 	margin: auto;
-	font-size: 3.2rem;
+	font-size: clamp(1.8rem, 0.6rem + 3vw, 7rem);
 	letter-spacing: 7px;
 	font-weight: 900;
 	margin-top: 5rem;
@@ -168,12 +172,12 @@ p {
 }
 
 .text-container h1 {
-	font-size: calc(1.3rem + 1.4vw);
+	font-size: clamp(1rem, 0.8rem + 1.7vw, 3rem);
 	color: var(--Very-dark-desaturated-blue);
 }
 
 .text-container p {
-	font-size: 1.1rem;
+	font-size: clamp(0.7rem, 0.4rem + 1vw, 1.5rem);
 	line-height: 1.7;
 	color: var(--Dark-grayish-blue);
 	margin-bottom: 2rem;
@@ -184,7 +188,7 @@ p {
 	font-weight: 900;
 	position: relative;
 	padding: 8px;
-	font-size: 1.1rem;
+	font-size: clamp(0.8rem, 0.4rem + 1vw, 1.5rem);
 	cursor: pointer;
 }
 
@@ -241,12 +245,12 @@ p {
 }
 
 .txt-ctr h1 {
-	font-size: 1.8rem;
+	font-size: clamp(0.7rem, 0.7rem + 1vw, 1.5rem);
 }
 
 .txt-ctr p {
 	line-height: 1.6;
-	font-size: 1rem;
+	font-size: clamp(0.5rem, 0.4rem + 1vw, 1.5rem);
 }
 
 @keyframes show-left {
@@ -315,6 +319,7 @@ p {
 .testemonials .testemonial p {
 	color: var(--Dark-grayish-blue);
 	line-height: 1.7;
+	font-size: clamp(0.7rem, 0.4rem + 0.8vw, 1.5rem);
 }
 
 .testemonials .testemonial .bio h4 {
@@ -329,6 +334,8 @@ p {
 	color: var(--Dark-grayish-blue);
 	opacity: 0.7;
 }
+
+/* Gallery */
 
 .gallery {
 	display: flex;
@@ -383,16 +390,178 @@ p {
 	color: #fff;
 }
 
-@media (max-width: 1000px) {
+/* Modaa */
+.modal {
+	display: none;
+	position: absolute;
+	background: #fff;
+	top: 15%;
+	left: 7%;
+	height: 55vh;
+	width: 85vw;
+	z-index: 10;
+	opacity: 0;
+	animation: open 1s forwards;
+}
+
+.modal ul {
+	height: 100%;
+	list-style: none;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5rem;
+	position: relative;
+}
+
+.modal ul li {
+	cursor: pointer;
+}
+
+.modal ul li a {
+	color: var(--Dark-grayish-blue);
+	font-size: 1.4rem;
+	padding: 1rem 1.2rem;
+	font-family: var(--barlow);
+}
+
+.modal ul li:last-child a {
+	margin-top: 4rem;
+	color: #000;
+	background: var(--Yellow);
+	font-weight: 700;
+	border-radius: 30px;
+	font-family: var(--fraunces);
+}
+
+.modal ul li:hover a {
+	opacity: 0.7;
+}
+
+.modal::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	right: 0;
+	border-top: 30px solid transparent;
+	border-left: 20px solid transparent;
+	border-right: 40px solid #fff;
+	border-bottom: 20px solid transparent;
+}
+
+.modal.open {
+	display: block;
+	transition: all 1s;
+}
+
+@keyframes open {
+	0% {
+		transform: translateY(-300px);
+	}
+
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 750px) {
 	.text .text-container {
 		min-width: 85%;
 	}
 
+	#header .nav a {
+		padding: 0;
+	}
+
+	#header .nav li:last-child a {
+		padding: 0.4rem 0.6rem;
+	}
+}
+
+@media (max-width: 600px) {
+	#header {
+		background: url('/images/mobile/image-header.jpg') no-repeat center
+			center/cover;
+		position: relative;
+	}
+
+	#header .nav ul {
+		display: none;
+	}
+
+	#header .nav .hamburger {
+		display: block;
+		cursor: pointer;
+	}
+
+	#header .hamburger div {
+		width: 20px;
+		margin-bottom: 5px;
+		height: 2px;
+		background: #fff;
+	}
+
+	.hamburger .first,
+	.hamburger .second,
+	.hamburger .last {
+		transition: 0.4s;
+	}
+
+	.hamburger.open .first {
+		transform: rotate(-45deg) translate(0px, 5px);
+	}
+
+	.hamburger.open .second {
+		opacity: 0;
+	}
+	.hamburger.open .last {
+		transform: rotate(45deg) translate(-5px, -10px);
+	}
+
+	#main {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	#main div {
+		width: 100%;
+	}
+
+	#main .text {
+		padding: 2rem;
+	}
+
+	.background-text .txt-ctr {
+		margin-bottom: 10%;
+		opacity: 0.6;
+		padding: 2rem;
+	}
+
 	.txt-ctr h1 {
-		font-size: 1.6rem;
+		font-size: clamp(1.4rem, 1.7rem + 1vw, 1.5rem);
 	}
 
 	.txt-ctr p {
-		font-size: 0.9rem;
+		line-height: 1.6;
+		font-size: clamp(1rem, 0.4rem + 1vw, 1.5rem);
+	}
+
+	.testemonials .testemonials-ctr {
+		flex-direction: column;
+	}
+
+	.testemonials .testemonial {
+		gap: 1rem;
+	}
+
+	.gallery {
+		flex-wrap: wrap;
+	}
+
+	.gallery picture {
+		width: 50%;
 	}
 }
