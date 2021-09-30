@@ -2,7 +2,7 @@
 
 ![Design preview for the Order summary card coding challenge](./images/desktop-design.jpg)
 
-## **Tip Calculator**
+## **Sunny Side Agency Landing Page**
 
 - **Level : `JUNIOR`**
 
